@@ -1,6 +1,6 @@
 enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
 
-class Usuario (val nome: String, val id: Int)
+class Usuario (val nomeUsuario: String, val id: Int)
 
 data class ConteudoEducacional(val nome: String, val duracao: Int)
 
@@ -41,8 +41,11 @@ fun main() {
     formacaoJetpack.matricular(usuario3)
 
     // Simular exibição da lista usuarios matriculados
-    println("Inscritos na formação ${formacaoKotlin.nome}: ${formacaoKotlin.inscritos.map { it.nome }}")
-    println("Inscritos na formação ${formacaoJetpack.nome}: ${formacaoJetpack.inscritos.map { it.nome }}")
+    // O it é uma variável especial que representa cada elemento individual da lista enquanto a função map itera sobre ela.
+    // Neste caso, it refere-se a cada objeto Usuario na lista formacaoKotlin.inscritosos 
+    // por isso achei melhor renomear a propriedade para ficar mais legível
+    println("Inscritos na formação ${formacaoKotlin.nome}: ${formacaoKotlin.inscritos.map { it.nomeUsuario }}")
+    println("Inscritos na formação ${formacaoJetpack.nome}: ${formacaoJetpack.inscritos.map { it.nomeUsuario }}")
     
     // Simular o cancelamento da matrícula
     formacaoKotlin.desmatricular(usuario2)
@@ -51,6 +54,6 @@ fun main() {
     println("Lista de inscritos atualizadas após cancelamento/mudança de curso:")
 
     // Simular exibição da lista de usuarios após cancelamento de matrícula
-    println("Inscritos na formação ${formacaoKotlin.nome}: ${formacaoKotlin.inscritos.map { it.nome }}")
-    println("Inscritos na formação ${formacaoJetpack.nome}: ${formacaoJetpack.inscritos.map { it.nome }}")
+    println("Inscritos na formação ${formacaoKotlin.nome}: ${formacaoKotlin.inscritos.map { it.nomeUsuario }}")
+    println("Inscritos na formação ${formacaoJetpack.nome}: ${formacaoJetpack.inscritos.map { it.nomeUsuario }}")
 }
